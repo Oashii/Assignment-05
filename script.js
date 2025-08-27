@@ -12,4 +12,21 @@ for (let heart of cardHearts) {
 
 // call part
 
-
+let coinsCount = document.getElementById("total-coins");
+let callBtn = document.getElementsByClassName("call-btn");
+for (let btn of callBtn) {
+    btn.addEventListener('click', function () {
+        let card = this.closest(".card");
+        let num = card.querySelector(".num").innerText;
+        let des = card.querySelector(".des").innerText;
+        let coins = parseInt(coinsCount.innerText);
+        if (coins >= 20) {
+            coins -= 20;
+            coinsCount.innerText = coins;
+            alert(`Calling ${des} ${num}...`);
+        }
+        else {
+            alert("Not Enough Coins!");
+        }
+    });
+}
