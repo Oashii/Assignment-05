@@ -30,3 +30,20 @@ for (let btn of callBtn) {
         }
     });
 }
+
+// copy part
+
+let copies = document.getElementsByClassName("copy-btn");
+let navCopy = document.getElementById("total-copies");
+let copyCount = 0;
+for (let copy of copies) {
+    copy.addEventListener('click', function () {
+        copyCount++;
+        navCopy.innerText = copyCount;
+        let card = this.closest(".card");
+        let num = card.querySelector(".num").innerText;
+        navigator.clipboard.writeText(num);
+        alert("Number copied to clipboard!");
+
+    })
+}
