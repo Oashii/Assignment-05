@@ -14,16 +14,33 @@ for (let heart of cardHearts) {
 
 let coinsCount = document.getElementById("total-coins");
 let callBtn = document.getElementsByClassName("call-btn");
+let history = document.getElementById("history");
 for (let btn of callBtn) {
     btn.addEventListener('click', function () {
         let card = this.closest(".card");
+        let name = card.querySelector(".name").innerText;
         let num = card.querySelector(".num").innerText;
         let des = card.querySelector(".des").innerText;
         let coins = parseInt(coinsCount.innerText);
+        let time = new Date().toLocaleTimeString();
         if (coins >= 20) {
             coins -= 20;
             coinsCount.innerText = coins;
             alert(`Calling ${des} ${num}...`);
+            let div = document.createElement("div")
+            div.innerHTML = `
+            <div class="flex justify-between content-center items-center bg-[#f2f2f2] p-3 rounded-xl mt-6">
+          <div>
+            <h1 class="text-[20px]">${name}</h1>
+            <h1 class="text-[#5c5c5c]">${num}</h1>
+          </div>
+          <div class="text-[#5c5c5c]">
+            ${time}
+          </div>
+        </div>
+            `
+            history.appendChild(div);
+
         }
         else {
             alert("Not Enough Coins!");
