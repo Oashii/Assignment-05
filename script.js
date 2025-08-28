@@ -29,7 +29,7 @@ for (let btn of callBtn) {
             alert(`Calling ${des} ${num}...`);
             let div = document.createElement("div")
             div.innerHTML = `
-            <div class="flex justify-between content-center items-center bg-[#f2f2f2] p-3 rounded-xl mt-6">
+            <div class="flex justify-between content-center items-center bg-[#f2f2f2] p-3 rounded-xl mt-4">
           <div>
             <h1 class="text-[20px]">${name}</h1>
             <h1 class="text-[#5c5c5c]">${num}</h1>
@@ -47,6 +47,13 @@ for (let btn of callBtn) {
         }
     });
 }
+
+
+// history clear part
+
+document.getElementById("clear").addEventListener('click', function () {
+    history.innerHTML = "";
+})
 
 // copy part
 
