@@ -67,7 +67,7 @@ for (let copy of copies) {
         let card = this.closest(".card");
         let num = card.querySelector(".num").innerText;
         navigator.clipboard.writeText(num);
-        alert("Number copied to clipboard!");
+        alert(`Number: ${num} copied to clipboard!`);
 
     })
 }
